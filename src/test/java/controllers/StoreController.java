@@ -1,17 +1,16 @@
 package controllers;
 
-import
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 
 import static constants.CommonConstants.BASE_URI;
 
-public class UserController {
+public class StoreController {
     RequestSpecification requestSpecification;
 
-    private static final String USER_ENDPOINT = "user";
+    private static final String USER_ENDPOINT = "store";
 
-    public UserController() {
+    public StoreController() {
         this.requestSpecification = given()
                 .accept(JSON)
                 .contentType(JSON)

@@ -1,11 +1,11 @@
+package tests;
+
 import io.restassured.response.Response;
 import models.AddUserResponse;
-import models.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.when;
 
 public class SmokeApiTests {
     @Test
@@ -37,25 +37,7 @@ public class SmokeApiTests {
 
     @Test
     void createUserControllerTest() {
-        User user = new User( 0,
-                    "username",
-                    "firstName",
-                    "lastName",
-                    "email",
-                    "password",
-                    "phone",
-                        0);
-
-        User userBuilder = User.builder()
-                .username("username")
-                .firstName("firstName")
-                .lastName("lastName")
-                .email("email")
-                .password("password")
-                .userStatus(0)
-                .build();
-
-        Response response = userController.createUser(user);
+        Response response = userController.createUser(DEFAULT_USER);
         AddUserResponse createdUserResponse = response.as(AddUserResponse.class);
 
         Assertions.assertEquals(200, response.statusCode());
